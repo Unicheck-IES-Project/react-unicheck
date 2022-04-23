@@ -1,0 +1,62 @@
+@import "../../DesignSystem.scss";
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 93px);
+    background-color:$primary-base;
+    z-index: -1;;
+    margin-top: 93px;
+
+    &-1{
+        position: absolute;
+        height: 50%;
+        background-color: $primary-base;
+        width: 100%;
+        top: 0;
+    }
+    &-2{
+        position: absolute;
+        height: 50%;
+        background-color: $white;
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+.Home {
+    @include flex-center-center;
+    min-height: 100vh;
+    background-color: $primary-base;
+
+    .dashboard {
+        @include dashboard;
+        margin-top: 0;
+
+        .dashboard-title-button {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 27px;
+        }
+
+        .contacts-grid {
+            .columns-names {
+                display: grid;
+                grid-template-columns: 20% 20% 18% 18% 18% 24px;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 4px;
+                margin-bottom: 12px;
+                padding: 0px 25px;
+                background: #F3F5F7;
+                height: 54px;
+                p{
+                    @include body-regular;
+                }
+            }
+        }
+        .contacts-amount {
+            margin-left: auto;
+        }
+    }
+}
