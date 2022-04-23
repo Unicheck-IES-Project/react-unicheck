@@ -1,0 +1,30 @@
+@import "../../DesignSystem.scss";
+
+.primary-button {
+    width: 200px;
+    height: 48px;
+    box-shadow: 3px 6px 14px rgba(0, 47, 104, 0.05);
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: $white;
+    border: none;
+    background-color: $secondary-base;
+    transition: all .4s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $secondary-light;
+    }
+
+    &:active {
+        border: 2px solid $secondary-base;
+    }
+
+    &:disabled {
+        background-color: $neutral-ironman;
+    }
+}
