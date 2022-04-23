@@ -1,17 +1,25 @@
 import './Home.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import SubjectList from '../SubjectsList/SubjectsList';
+import {useState} from "react";
+import AddSubject from "../AddSubject/AddSubject";
 
 const Home = (props) => {
+
+    const [showPopup, setShowPopup] = useState(false)
+
+    const togglePopup = () => {
+        setShowPopup(!showPopup)
+    }
 
     return (
         <>
             <div className="Home">
-                <div className="popup"></div>
+                {showPopup ? <div className="popup"><AddSubject /></div> : null}
                 <div className="dashboard">
                     <div className="dashboard-title-button">
                         <h1>Materias</h1>
-                        <PrimaryButton handleClick={()=>{}}>Agregar Materia</PrimaryButton>
+                        <PrimaryButton handleClick={()=>togglePopup()}>Agregar Materia</PrimaryButton>
                     </div>
                     <div className="contacts-grid">
                         <div className="columns-names">

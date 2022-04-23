@@ -1,0 +1,35 @@
+.AddSubject {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+.dashboard {
+    margin-top: 0;
+
+.dashboard-title-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+}
+}
+
+.large-input {
+    height: 2rem;
+    border-radius: 8px;
+    width: 500px;
+    margin-right: 1rem;
+    padding: 0rem 1rem;
+}
+
+.short-input {
+    height: 2rem;
+    border-radius: 8px;
+    padding: 0rem 1rem;
+}
+
+.checkbox-inpurt {
+    border-radius: 8px;
+    padding: 0rem 1rem;
+}
