@@ -1,0 +1,18 @@
+@import "../../DesignSystem.scss";
+
+.Input {
+    display: grid;
+    row-gap: 5px;
+    
+    label {
+       @include body-bold;
+    }
+
+    input {
+        height: 48px;
+        border: 1px solid $neutral-ironman;
+        border-radius: 4px;
+        padding: 5px 10px;
+        @include body-regular;
+    }
+}
