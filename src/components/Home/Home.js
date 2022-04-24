@@ -8,18 +8,18 @@ const Home = (props) => {
 
     const [showPopup, setShowPopup] = useState(false)
 
-    const togglePopup = () => {
-        setShowPopup(!showPopup)
+    const togglePopup = (boolean) => {
+        setShowPopup(boolean)
     }
 
     return (
         <>
             <div className="Home">
-                {showPopup ? <div className="popup"><AddSubject /></div> : null}
+                {showPopup ? <AddSubject show={togglePopup}/> : null}
                 <div className="dashboard">
                     <div className="dashboard-title-button">
                         <h1>Materias</h1>
-                        <PrimaryButton handleClick={()=>togglePopup()}>Agregar Materia</PrimaryButton>
+                        <PrimaryButton handleClick={()=>togglePopup(true)}>Agregar Materia</PrimaryButton>
                     </div>
                     <div className="contacts-grid">
                         <div className="columns-names">
