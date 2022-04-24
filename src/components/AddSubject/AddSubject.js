@@ -8,18 +8,18 @@ const AddSubject = ({onCancelClick}) => {
     return (
         <div className="AddSubject">
             <div className="dashboard">
-                <h1>Add new Subject</h1>
-                <Input handleChange={() => {}} value={"1"}>Name</Input>
-                <Input handleChange={() => {}} value={"1"}>Enrollment Period</Input>
-                <Input handleChange={() => {}} value={"1"}>Year Of Subject</Input>
-                <Input handleChange={() => {}} value={"1"}>Is Attended</Input>
-                <Input handleChange={() => {}} value={"1"}>Final Grade</Input>
+                <h1>Agregar nueva materia</h1>
+                <Input handleChange={() => {}} value={"1"}>Nombre de asignatura</Input>
+                <Input handleChange={() => {}} value={"1"}>Período</Input>
+                <Input handleChange={() => {}} value={"1"}>Año</Input>
+                <Input handleChange={() => {}} value={"1"}>Estado</Input>
+                <Input handleChange={() => {}} value={"1"}>Nota final</Input>
                 <div className="buttons-container">
                     <PrimaryButton handleClick={() => {}}>
-                        Save Changes
+                        Agregar
                     </ PrimaryButton>
                     <PrimaryButton handleClick={onCancelClick}>
-                        Cancel
+                        Cancelar
                     </ PrimaryButton>
                 </div>
             </div>
