@@ -1,6 +1,6 @@
 import './Home.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
-import SubjectList from '../SubjectsList/SubjectsList';
+import SubjectsListContainer from '../../containers/SubjectsListContainer/SubjectsListContainer';
 
 const Home = (props) => {
 
@@ -21,7 +21,7 @@ const Home = (props) => {
                             <p>Estado</p>
                             <p>Nota</p>
                         </div>
-                        <SubjectList />
+                        <SubjectsListContainer />
                     </div>
                 </div>
             </div>
