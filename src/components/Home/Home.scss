@@ -28,6 +28,7 @@
     @include flex-center-center;
     min-height: 100vh;
     background-color: $primary-base;
+    padding: 40px 0;
 
     .dashboard {
         @include dashboard;

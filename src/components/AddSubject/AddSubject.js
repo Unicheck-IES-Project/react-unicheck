@@ -4,19 +4,19 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import React from 'react';
 
 
-const AddSubject = ({onCancelClick}) => {
+const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
     return (
         <div className="AddSubject">
             <div className="dashboard">
-                <h1>Agregar nueva materia</h1>
-                <Input handleChange={() => {}} value={"1"}>Nombre de asignatura</Input>
-                <Input handleChange={() => {}} value={"1"}>Período</Input>
-                <Input handleChange={() => {}} value={"1"}>Año</Input>
-                <Input handleChange={() => {}} value={"1"}>Estado</Input>
-                <Input handleChange={() => {}} value={"1"}>Nota final</Input>
+                <h1>Add new Subject</h1>
+                <Input handleChange={changeInputData("subjectName")} value={data.name}>Nombre de asignatura</Input>
+                <Input handleChange={changeInputData("enrollmentPeriod")} value={data.enrollmentPeriod}>Período</Input>
+                <Input handleChange={changeInputData("yearOfSubject")} value={data.yearOfSubject}>Año</Input>
+                <Input handleChange={changeInputData("isAttended")} value={data.isAttended}>Estado</Input>
+                <Input handleChange={changeInputData("finalGrade")} value={data.finalGrade}>Nota final</Input>
                 <div className="buttons-container">
-                    <PrimaryButton handleClick={() => {}}>
-                        Agregar
+                    <PrimaryButton handleClick={() => onSaveClick(data)}>
+                         Agregar
                     </ PrimaryButton>
                     <PrimaryButton handleClick={onCancelClick}>
                         Cancelar

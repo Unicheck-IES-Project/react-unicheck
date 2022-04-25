@@ -1,6 +1,7 @@
 import SubjectListItem from '../SubjectListItem/SubjectListItem';
 
 const SubjectList = ({subjects}) => {
+    console.log(subjects)
     return (
         <>   
             {
