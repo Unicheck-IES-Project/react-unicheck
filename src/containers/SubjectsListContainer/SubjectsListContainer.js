@@ -4,19 +4,26 @@ import SubjectList from '../../components/SubjectsList/SubjectsList';
 import {getSubjects} from '../../actions/index'
 
 const mapStateToProps = (state) => {
-  return {
-    subjects: state.subjects
-  }
+    return {
+        subjects: state.subjects
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getSubjects: () => {
+            dispatch(getSubjects())
+        }
+    }
 }
 
-const SubjectsListContainer = ({subjects}) => {
+const SubjectsListContainer = ({subjects, getSubjects}) => {
     useEffect(() => {
-      //getSubjects();
+        getSubjects();
     },[])
     return <SubjectList subjects={subjects} />
 }
 
 export default connect(
-  mapStateToProps,
-  null
+    mapStateToProps,
+    mapDispatchToProps
 )(SubjectsListContainer);
