@@ -1,6 +1,6 @@
 import { handle } from 'redux-pack';
 
-const defaultState = [
+/*const defaultState = [
     {
         subjectName:"Matematica", enrollmentPeriod:"Anual", yearOfSubject:"1998", isAttended:"Cursada", finalGrade:"10", id:"1"
     },
@@ -16,23 +16,26 @@ const defaultState = [
     {
         subjectName:"Matematica", enrollmentPeriod:"Anual", yearOfSubject:"1998", isAttended:"Cursada", finalGrade:"10", id:"5"
     }
-]
+]*/
 
-const subjects = (state = defaultState, action) => {
+const subjects = (state = [], action) => {
+    console.log(action)
     switch (action.type) {
 
         case 'ADD_SUBJECT':
-            return  [
+            return  handle(state, action, {
+                failure: _ => state,
+                success: _ => [
                     ...state,
-                    {...action.payload, id: action.id}
+                    action.payload
                 ]
-            ;
+            });
         case 'GET_SUBJECTS':
             return  handle(state, action, {
                 failure: _ => state,
-                success: _ => action.payload.response
+                success: _ => action.payload
             });
-        
+
         default:
         return state
     }

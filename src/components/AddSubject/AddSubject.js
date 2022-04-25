@@ -9,11 +9,11 @@ const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
         <div className="AddSubject">
             <div className="dashboard">
                 <h1>Add new Subject</h1>
-                <Input handleChange={changeInputData("subjectName")} value={data.name}>Nombre de asignatura</Input>
-                <Input handleChange={changeInputData("enrollmentPeriod")} value={data.enrollmentPeriod}>Período</Input>
-                <Input handleChange={changeInputData("yearOfSubject")} value={data.yearOfSubject}>Año</Input>
-                <Input handleChange={changeInputData("isAttended")} value={data.isAttended}>Estado</Input>
-                <Input handleChange={changeInputData("finalGrade")} value={data.finalGrade}>Nota final</Input>
+                <Input handleChange={changeInputData("nombre")} value={data.nombre}>Nombre de asignatura</Input>
+                <Input handleChange={changeInputData("periodoDeCursada")} value={data.periodoDeCursada}>Período</Input>
+                <Input handleChange={changeInputData("añoDeCursada")} value={data.añoDeCursada}>Año</Input>
+                <Input handleChange={changeInputData("cursando")} value={data.cursando}>Estado</Input>
+                <Input handleChange={changeInputData("nota")} value={data.nota}>Nota final</Input>
                 <div className="buttons-container">
                     <PrimaryButton handleClick={() => onSaveClick(data)}>
                          Agregar

@@ -1,14 +1,14 @@
 import './SubjectListItem.scss';
 import eye from '../../assets/eye.png';
 
-const SubjectListItem = ({subjectName, enrollmentPeriod, yearOfSubject, isAttended, finalGrade}) => {
+const SubjectListItem = ({nombre, periodoDeCursada, añoDeCursada, cursando, nota}) => {
     return (
         <div className="SubjectListItem">
-            <p>{subjectName}</p>
-            <p>{enrollmentPeriod}</p>
-            <p>{yearOfSubject}</p>
-            <p>{isAttended}</p>
-            <p>{finalGrade}</p>
+            <p>{nombre}</p>
+            <p>{periodoDeCursada}</p>
+            <p>{añoDeCursada}</p>
+            <p>{cursando ? "Cursando" : "No cursando"}</p>
+            <p>{nota}</p>
             <img src={eye} alt="Eye button"/>
         </div>
     )

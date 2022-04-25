@@ -16,11 +16,11 @@ const AddSubjectContainer = ({onSaveChangesClick, onCancelClick}) => {
 
     const [data, setData] = useState({
         
-        subjectName:"", 
-        enrollmentPeriod:"", 
-        yearOfSubject:"", 
-        isAttended:"", 
-        finalGrade:""
+        nombre:"",
+        periodoDeCursada:"",
+        añoDeCursada:"",
+        cursando:"",
+        nota:""
         
     });
    

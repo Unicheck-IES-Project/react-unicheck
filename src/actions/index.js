@@ -2,13 +2,12 @@ import Api from '../Api';
 
 const ADD_SUBJECT = 'ADD_SUBJECT';
 const GET_SUBJECTS = 'GET_SUBJECTS';
-let nextId = 6
 
 export const addSubjectAction = (subject) => {
+    const api = new Api();
     return {
         type: ADD_SUBJECT,
-        payload: subject,
-        nextId: nextId++
+        promise: api.post('api/v1/subjects', subject)
     }
 }
 
@@ -19,3 +18,6 @@ export const  getSubjects = () => {
       promise: api.get('api/v1/subjects')
     }
   }
+
+
+

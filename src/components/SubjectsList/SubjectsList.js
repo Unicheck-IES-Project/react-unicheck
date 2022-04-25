@@ -4,6 +4,7 @@ const SubjectList = ({subjects}) => {
     return (
         <>   
             {
+
                 subjects.map(subject =>
                     <SubjectListItem
                         key={subject.id}

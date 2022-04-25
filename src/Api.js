@@ -7,17 +7,17 @@ class Api {
     // setToken( token ) {
     //     localStorage.setItem("token", token);
     // }
-    get( url ){ 
-        axios.get(
-                this.baseUrl + url
-            ).then(res => {
-                if(res.ok){
-                    return res.json();
-                }else{
-                    throw res;
-                }
-            })
-             .catch(error => { throw error }) 
+    get( url ){
+        return fetch(
+            this.baseUrl + url,
+        ).then(res => {
+            if(res.ok){
+                return res.json();
+            }else{
+                throw res;
+            }
+        })
+            .catch(error => { throw error })
     }
     post( url, data ){ 
         
@@ -27,8 +27,7 @@ class Api {
                     method: 'POST', 
                     body: JSON.stringify(data), 
                     headers:{
-                    'Content-Type': 'application/json',
-                    "authorization": `Bearer ${this.token}`
+                    'Content-Type': 'application/json'
                 }
             }).then(res => {
                 
