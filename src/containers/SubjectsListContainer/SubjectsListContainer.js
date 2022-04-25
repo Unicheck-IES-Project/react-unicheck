@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
+import {useEffect} from 'react';
 import SubjectList from '../../components/SubjectsList/SubjectsList';
+import {getSubjects} from '../../actions/index'
 
 const mapStateToProps = (state) => {
   return {
@@ -7,10 +9,14 @@ const mapStateToProps = (state) => {
   }
 }
 
+const SubjectsListContainer = ({subjects}) => {
+    useEffect(() => {
+      //getSubjects();
+    },[])
+    return <SubjectList subjects={subjects} />
+}
 
-const SubjectsListContainer = connect(
+export default connect(
   mapStateToProps,
   null
-)(SubjectList)
-
-export default SubjectsListContainer;
+)(SubjectsListContainer);
