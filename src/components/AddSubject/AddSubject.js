@@ -4,18 +4,18 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import React from 'react';
 
 
-const AddSubject = ({onCancelClick}) => {
+const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
     return (
         <div className="AddSubject">
             <div className="dashboard">
                 <h1>Add new Subject</h1>
-                <Input handleChange={() => {}} value={"1"}>Name</Input>
-                <Input handleChange={() => {}} value={"1"}>Enrollment Period</Input>
-                <Input handleChange={() => {}} value={"1"}>Year Of Subject</Input>
-                <Input handleChange={() => {}} value={"1"}>Is Attended</Input>
-                <Input handleChange={() => {}} value={"1"}>Final Grade</Input>
+                <Input handleChange={changeInputData("subjectName")} value={data.name}>Name</Input>
+                <Input handleChange={changeInputData("enrollmentPeriod")} value={data.enrollmentPeriod}>Enrollment Period</Input>
+                <Input handleChange={changeInputData("yearOfSubject")} value={data.yearOfSubject}>Year Of Subject</Input>
+                <Input handleChange={changeInputData("isAttended")} value={data.isAttended}>Is Attended</Input>
+                <Input handleChange={changeInputData("finalGrade")} value={data.finalGrade}>Final Grade</Input>
                 <div className="buttons-container">
-                    <PrimaryButton handleClick={() => {}}>
+                    <PrimaryButton handleClick={() => onSaveClick(data)}>
                         Save Changes
                     </ PrimaryButton>
                     <PrimaryButton handleClick={onCancelClick}>

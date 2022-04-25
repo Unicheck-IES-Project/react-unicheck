@@ -17,13 +17,13 @@ const defaultState = [
 ]
 
 const subjects = (state = defaultState, action) => {
-
+    console.log("action",action)
     switch (action.type) {
 
         case 'ADD_SUBJECT':
             return  [
                     ...state,
-                    action.payload
+                    {...action.payload, id: action.id}
                 ]
             ;
         

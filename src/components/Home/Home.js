@@ -1,10 +1,11 @@
 import './Home.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import SubjectsListContainer from '../../containers/SubjectsListContainer/SubjectsListContainer';
-import AddSubject from '../AddSubject/AddSubject';
 import {useState} from 'react'
+import AddSubjectContainer from '../../containers/AddSubjectContainer/AddSubjectContainer';
 
 const Home = () => {
+    
     const [showAddSubject, setShowAddSubject] = useState(false)
     const onAddSubjectClick = () => {
         setShowAddSubject(true);
@@ -15,7 +16,7 @@ const Home = () => {
     return (
         <>
             {showAddSubject ? 
-            <AddSubject onCancelClick={onCancelClick}/>:
+            <AddSubjectContainer onCancelClick={onCancelClick}/>:
             <div className="Home">
                 <div className="popup"></div>
                 <div className="dashboard">
