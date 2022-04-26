@@ -7,7 +7,7 @@ const SubjectListItem = ({nombre, periodoDeCursada, añoDeCursada, cursando, not
             <p>{nombre}</p>
             <p>{periodoDeCursada}</p>
             <p>{añoDeCursada}</p>
-            <p>{cursando ? "Cursando" : "No cursando"}</p>
+            <p>{cursando ? "Cursando" : "Cursada"}</p>
             <p>{nota}</p>
             <img src={eye} alt="Eye button"/>
         </div>
