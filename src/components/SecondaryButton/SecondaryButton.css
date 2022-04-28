@@ -1,0 +1,20 @@
+.secondary-button {
+    width: 200px;
+    height: 48px;
+    box-shadow: 3px 6px 14px rgba(0, 47, 104, 0.05);
+    border-radius: 4px;
+    font-family: 'Inter', "Segoe UI";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    border: none;
+    background-color: #A4AFB8;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background-color: #A1D0FF;
+}
