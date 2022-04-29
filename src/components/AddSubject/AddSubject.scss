@@ -26,6 +26,25 @@
         button {
             margin-top: 20px;
         }
+        .select {
+            label{
+                @include body-bold;
+            }
+            select {
+                
+                    height: 48px;
+                    border: 1px solid #A4AFB8;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    font-family: "Inter";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 24px;
+                    color: #3C4144;
+                
+            }
+        }
     }
     
 }
