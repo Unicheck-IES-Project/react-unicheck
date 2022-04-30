@@ -23,15 +23,14 @@ export const  getSubjects = () => {
     const api = new Api();
     return {
       type: GET_SUBJECTS,
-      promise: api.get('/api/v1/authenticate/students', data),
+      promise: api.post('/api/v1/authenticate/students/login', data),
       meta: {
         onSuccess: (res) => {
+          console.log("res:", res)
           api.agregarToken(res.id)
           redireccionar()
         }
       },
     };
   }
-
-
 

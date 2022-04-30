@@ -21,24 +21,7 @@ class Api {
         })
             .catch(error => { throw error })
     }
-    get( url, data ){
-        return fetch(
-            this.baseUrl + url,
-            {
-                body: JSON.stringify(data), 
-                headers:{
-                'Content-Type': 'application/json'
-                }
-            }
-        ).then(res => {
-            if(res.ok){
-                return res.json();
-            }else{
-                throw res;
-            }
-        })
-            .catch(error => { throw error })
-    }
+
     post( url, data ){ 
         
         return fetch(
