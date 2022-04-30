@@ -1,18 +1,8 @@
 import './Login.scss'
-import {useState} from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { useNavigate } from 'react-router';
 
-const Login = () => {
-
-    const navigate = useNavigate()
-
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-
-    const handleChange = (setValue) => {
-        return (event) => setValue(event.target.value);
-    };
+const Login = ({handleClick, handleChange, data}) => {
 
     const goToRegister = () => {
         navigate('/registrarse')
@@ -23,14 +13,14 @@ const Login = () => {
             <div className='login-container'>
                 <h1>Iniciar sesión</h1>
                 <label>Nombre de usuario</label>
-                <input className='login-input' value={username}
-                       onChange={handleChange(setUsername)}/>
+                <input className='login-input' value={data.username}
+                       onChange={handleChange("username")}/>
 
                 <label>Contraseña</label>
-                <input className='login-input' type='password' value={password}  onChange={handleChange(setPassword)}/>
+                <input className='login-input' type='password' value={data.password}  onChange={handleChange("password")}/>
 
                 <div className='login-buttons'>
-                    <PrimaryButton handleClick={() => {}}>Login</PrimaryButton>
+                    <PrimaryButton handleClick={handleClick}>Login</PrimaryButton>
                     <PrimaryButton handleClick={() => goToRegister()}>Crear cuenta</PrimaryButton>
                 </div>
             </div>
