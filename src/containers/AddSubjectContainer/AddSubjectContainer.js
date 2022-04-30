@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AddSubject from '../../components/AddSubject/AddSubject';
 import SubjectList from '../../components/SubjectsList/SubjectsList';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {addSubjectAction} from '../../actions/index'
 
 
@@ -17,13 +17,17 @@ const AddSubjectContainer = ({onSaveChangesClick, onCancelClick}) => {
     const [data, setData] = useState({
         
         nombre:"",
-        periodoDeCursada:"",
+        periodoDeCursada:"Primer Cuatrimestre",
         añoDeCursada:"",
-        cursando:"",
+        cursando:"true",
         nota:""
         
     });
-   
+   useEffect(() => {
+      if(data.cursando == "true"){
+        setData(prevState => ({...prevState, nota: ""}))
+      }
+   },[data.cursando])
 
     const changeData = (propName) => (event) =>{
         setData(prevState => ({...prevState, [propName]: event.target.value}))

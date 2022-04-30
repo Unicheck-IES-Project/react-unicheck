@@ -1,10 +1,10 @@
 import './input.scss';
 
-const Input = ({children, handleChange, value}) => {
+const Input = ({children, handleChange, value, type="text", disabled}) => {
     return(
         <div className="Input">
             <label>{children}</label>
-            <input onChange={handleChange} value={value} />
+            <input disabled={disabled} onChange={handleChange} value={value} type={type}/>
         </div>
     )
 }
