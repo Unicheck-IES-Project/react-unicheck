@@ -1,9 +1,12 @@
 import './Login.scss'
 import {useState} from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import SecondaryButton from "../SecondaryButton/SecondaryButton";
+import { useNavigate } from 'react-router';
+
 
 const Login = () => {
+
+    const navigate = useNavigate()
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -11,6 +14,10 @@ const Login = () => {
     const handleChange = (setValue) => {
         return (event) => setValue(event.target.value);
     };
+
+    const goToRegister = () => {
+        navigate('/registrarse')
+    }
 
     return (
         <div className='login-view'>
@@ -25,7 +32,7 @@ const Login = () => {
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={() => {}}>Login</PrimaryButton>
-                    <PrimaryButton handleClick={() => {}}>Crear cuenta</PrimaryButton>
+                    <PrimaryButton handleClick={() => goToRegister()}>Crear cuenta</PrimaryButton>
                 </div>
             </div>
         </div>
