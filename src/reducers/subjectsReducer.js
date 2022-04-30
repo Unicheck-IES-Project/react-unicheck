@@ -36,6 +36,11 @@ const subjects = (state = [], action) => {
                 failure: _ => state,
                 success: _ => action.payload
             });
+        case 'LOGIN':
+            return  handle(state, action, {
+                failure: _ => state,
+                success: _ => action.payload.materias
+            });
 
         default:
         return state

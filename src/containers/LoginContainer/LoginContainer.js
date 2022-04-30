@@ -11,8 +11,8 @@ import {useNavigate} from 'react-router-dom';
 // }
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginAction: (usuario, contraseña, redireccionar) => {
-            dispatch(login(usuario, contraseña, redireccionar))
+        loginAction: (data, redireccionar) => {
+            dispatch(login(data, redireccionar))
         }
     }
 }

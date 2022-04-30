@@ -21,11 +21,13 @@ export const  getSubjects = () => {
 
   export const  login = (data, redireccionar) => {
     const api = new Api();
+    console.log(data)
     return {
-      type: GET_SUBJECTS,
-      promise: api.getWithBody('/api/v1/authenticate/students', data),
+      type: "LOGIN",
+      promise: api.post('api/v1/authenticate/students/login', data),
       meta: {
         onSuccess: (res) => {
+          console.log("res:", res)
           api.agregarToken(res.id)
           redireccionar()
         }
