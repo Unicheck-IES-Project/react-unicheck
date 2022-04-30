@@ -15,7 +15,7 @@ const Register = () => {
     return (
         <div className='login-view'>
             <div className='login-container'>
-                <h1>Crearse un nuevo usuario</h1>
+                <h1>Crear un nuevo usuario</h1>
                 <label>Nombre de usuario</label>
                 <input className='login-input' value={username}
                        onChange={handleChange(setUsername)}/>
