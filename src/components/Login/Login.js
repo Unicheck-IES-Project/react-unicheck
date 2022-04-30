@@ -3,7 +3,6 @@ import {useState} from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { useNavigate } from 'react-router';
 
-
 const Login = () => {
 
     const navigate = useNavigate()

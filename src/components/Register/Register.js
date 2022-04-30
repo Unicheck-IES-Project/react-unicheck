@@ -1,7 +1,7 @@
 import './Register.scss'
 import {useState} from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import SecondaryButton from "../SecondaryButton/SecondaryButton";
+import {Link} from 'react-router-dom';
 
 const Register = () => {
 
@@ -25,7 +25,7 @@ const Register = () => {
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={() => {}}>Registrarse</PrimaryButton>
-                    <PrimaryButton handleClick={() => {}}>Login</PrimaryButton>
+                    <Link to={"/"}><PrimaryButton handleClick={() => {}}>Login</PrimaryButton></Link>
                 </div>
             </div>
         </div>
