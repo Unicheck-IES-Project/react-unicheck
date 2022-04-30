@@ -23,7 +23,7 @@ export const  getSubjects = () => {
     const api = new Api();
     return {
       type: GET_SUBJECTS,
-      promise: api.get('/api/v1/authenticate/students', data),
+      promise: api.getWithBody('/api/v1/authenticate/students', data),
       meta: {
         onSuccess: (res) => {
           api.agregarToken(res.id)
