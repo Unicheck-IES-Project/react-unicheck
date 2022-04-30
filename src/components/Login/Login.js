@@ -1,8 +1,12 @@
 import './Login.scss'
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const Login = ({handleClick, handleChange, data}) => {
+
+    const goToRegister = () => {
+        navigate('/registrarse')
+    }
 
     return (
         <div className='login-view'>
@@ -17,7 +21,7 @@ const Login = ({handleClick, handleChange, data}) => {
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={handleClick}>Login</PrimaryButton>
-                    <Link to={"/register"}><PrimaryButton handleClick={() => {}}>Crear cuenta</PrimaryButton></Link>
+                    <PrimaryButton handleClick={() => goToRegister()}>Crear cuenta</PrimaryButton>
                 </div>
             </div>
         </div>
