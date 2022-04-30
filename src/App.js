@@ -6,7 +6,7 @@ import { middleware as reduxPackMiddleware } from 'redux-pack';
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import thunk from 'redux-thunk';
 import subjectsReducer from './reducers/index';
-import Login from "./components/Login/Login";
+import LoginContainer from "./containers/LoginContainer/LoginContainer";
 import Register from "./components/Register/Register";
 
 let store = createStore(subjectsReducer, applyMiddleware(thunk, reduxPackMiddleware));
@@ -16,7 +16,7 @@ function App() {
     <Provider store = {store}>
         <Router>
             <Routes>
-                <Route path="/" element={<Login />}/>
+                <Route path="/" element={<LoginContainer />}/>
                 <Route path="/home" element={<Home />} />
                 <Route path="/register" element={<Register />} />
             </Routes>

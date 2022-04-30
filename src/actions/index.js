@@ -19,5 +19,19 @@ export const  getSubjects = () => {
     }
   }
 
+  export const  login = (data, redireccionar) => {
+    const api = new Api();
+    return {
+      type: GET_SUBJECTS,
+      promise: api.get('/api/v1/authenticate/students', data),
+      meta: {
+        onSuccess: (res) => {
+          api.agregarToken(res.id)
+          redireccionar()
+        }
+      },
+    };
+  }
+
 
 

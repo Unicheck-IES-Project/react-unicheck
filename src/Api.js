@@ -4,12 +4,32 @@ class Api {
         this.baseUrl = "http://localhost:8080/"
         this.axios = axios;
     }
-    // setToken( token ) {
-    //     localStorage.setItem("token", token);
-    // }
+
+    agregarToken(id) {
+        localStorage.setItem("id", id);
+    }
+
     get( url ){
         return fetch(
             this.baseUrl + url,
+        ).then(res => {
+            if(res.ok){
+                return res.json();
+            }else{
+                throw res;
+            }
+        })
+            .catch(error => { throw error })
+    }
+    get( url, data ){
+        return fetch(
+            this.baseUrl + url,
+            {
+                body: JSON.stringify(data), 
+                headers:{
+                'Content-Type': 'application/json'
+                }
+            }
         ).then(res => {
             if(res.ok){
                 return res.json();
