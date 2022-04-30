@@ -1,7 +1,7 @@
 import './Login.scss'
 import {useState} from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import SecondaryButton from "../SecondaryButton/SecondaryButton";
+import {Link} from 'react-router-dom';
 
 const Login = () => {
 
@@ -25,7 +25,7 @@ const Login = () => {
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={() => {}}>Login</PrimaryButton>
-                    <PrimaryButton handleClick={() => {}}>Crear cuenta</PrimaryButton>
+                    <Link to={"/register"}><PrimaryButton handleClick={() => {}}>Crear cuenta</PrimaryButton></Link>
                 </div>
             </div>
         </div>
