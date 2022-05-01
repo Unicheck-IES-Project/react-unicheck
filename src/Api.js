@@ -8,6 +8,9 @@ class Api {
     agregarToken(id) {
         localStorage.setItem("id", id);
     }
+    getStudentId() {
+        localStorage.getItem("id");
+    }
 
     get( url ){
         return fetch(
