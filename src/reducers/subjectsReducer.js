@@ -20,7 +20,9 @@ import { handle } from 'redux-pack';
 
 const subjects = (state = [], action) => {
     console.log("esta accion entra al reducer:", action)
-    
+
+    console.log(action.payload)
+
     switch (action.type) {
 
         case 'ADD_SUBJECT':

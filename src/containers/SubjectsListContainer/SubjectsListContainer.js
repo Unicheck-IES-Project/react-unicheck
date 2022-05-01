@@ -17,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const SubjectsListContainer = ({subjects, getSubjects}) => {
-    /*useEffect(() => {
+    useEffect(() => {
         getSubjects();
-    },[])*/
+    },[])
     return <SubjectList subjects={subjects} />
 }
 

@@ -9,7 +9,7 @@ class Api {
         localStorage.setItem("id", id);
     }
     getStudentId() {
-        localStorage.getItem("id");
+        return localStorage.getItem("id");
     }
 
     get( url ){
