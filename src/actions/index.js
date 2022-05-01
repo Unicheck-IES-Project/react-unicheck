@@ -7,7 +7,7 @@ export const addSubjectAction = (subject) => {
     const api = new Api();
     return {
         type: ADD_SUBJECT,
-        promise: api.post('api/v1/subjects', subject)
+        promise: api.post(`api/v1/${api.getStudentId()}subjects`, subject)
     }
 }
 
