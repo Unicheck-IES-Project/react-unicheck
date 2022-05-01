@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import AddSubject from '../../components/AddSubject/AddSubject';
-import SubjectList from '../../components/SubjectsList/SubjectsList';
 import {useState, useEffect} from 'react';
 import {addSubjectAction} from '../../actions/index'
 

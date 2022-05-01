@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router';
 
 const Login = ({handleClick, handleChange, data}) => {
 
+    const navigate = useNavigate()
     const goToRegister = () => {
-        navigate('/registrarse')
+        navigate('/register')
     }
 
     return (
