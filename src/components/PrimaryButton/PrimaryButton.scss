@@ -11,10 +11,10 @@
     font-size: 18px;
     line-height: 20px;
     color: $white;
-    border: none;
-    background-color: $secondary-base;
+    border: none !important;
+    background-color: $secondary-base !important;
     transition: all .4s ease;
-    cursor: pointer;
+    cursor: pointer !important;
 
     &:hover {
         background-color: $secondary-light;
