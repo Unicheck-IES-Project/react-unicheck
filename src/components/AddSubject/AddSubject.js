@@ -2,8 +2,6 @@ import Input from '../input/input';
 import './AddSubject.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import React from 'react';
-import ReactSelect from 'react-select';
-
 
 const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
     return (

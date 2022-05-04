@@ -25,6 +25,10 @@ class Api {
             .catch(error => { throw error })
     }
 
+    delete( url ) {
+        return fetch ( this.baseUrl + url, {method:"DELETE"})
+    }
+
     post( url, data ){ 
         
         return fetch(
