@@ -1,6 +1,6 @@
 import SubjectListItem from '../SubjectListItem/SubjectListItem';
 
-const SubjectList = ({subjects, eliminarMateriaClick}) => {
+const SubjectList = ({subjects, eliminarMateriaClick,guardarMateriaClick}) => {
     return (
         <>   
             {
@@ -10,6 +10,7 @@ const SubjectList = ({subjects, eliminarMateriaClick}) => {
                         key={subject.id}
                         {...subject}
                         eliminarMateriaClick={eliminarMateriaClick}
+                        guardarMateriaClick={guardarMateriaClick}
                     />
                 )
             }

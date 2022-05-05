@@ -1,0 +1,28 @@
+.EditarMateria {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    
+    .content {
+        background: white; 
+        display: grid;
+        justify-items: center;
+        grid-template-columns: auto auto;
+
+        p {
+            grid-column: 1/3;
+            margin-top: 50px;
+        }
+
+        .primary-button {
+            width: 150px;
+            grid-row: 2/3;
+        }
+    }
+}

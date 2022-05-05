@@ -29,6 +29,19 @@ class Api {
         return fetch ( this.baseUrl + url, {method:"DELETE"})
     }
 
+    put( url, data ){ 
+        
+        return fetch(
+                this.baseUrl + url, 
+                {
+                    method: 'PUT', 
+                    body: JSON.stringify(data),
+                    headers:{
+                    'Content-Type': 'application/json'
+                }
+            }).catch(error => { throw error; })
+    }
+
     post( url, data ){ 
         
         return fetch(
