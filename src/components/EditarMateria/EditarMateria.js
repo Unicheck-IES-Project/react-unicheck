@@ -44,7 +44,10 @@ const EditarMateria = ({nombre, periodoDeCursada, añoDeCursada, cursando, nota,
                         </div>
                         <Input disabled={data.cursando == "true"? true : false} type="number" handleChange={changeData("nota")} value={data.cursando == "true" ? "" : data.nota}>Nota final</Input>
                         <div className="buttons-container">
-                            <PrimaryButton handleClick={() => guardar(id, data)}>
+                            <PrimaryButton handleClick={() => {
+                                                                guardar(id, data);
+                                                                volver();
+                                                              }}>
                                 Guardar
                             </ PrimaryButton>
                             <PrimaryButton handleClick={() => volver() }>

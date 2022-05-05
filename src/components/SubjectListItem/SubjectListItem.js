@@ -22,7 +22,7 @@ const SubjectListItem = ({nombre, periodoDeCursada, añoDeCursada, cursando, not
             <button  onClick={() => setEditarMateria(true)}><img src={lapiz} alt="lapiz"/></button>
             <button  onClick={() => setShowPopUp(true)}><img src={tacho} alt="tacho"/></button>
             {showPopUp ? <PopUp eliminar={() => eliminarMateriaClick(id)} volver={() => setShowPopUp(false)}></PopUp> : <></>}
-            {showEditarMateria ? <EditarMateria nombre={nombre} periodoDeCursada={periodoDeCursada} añoDeCursada={añoDeCursada} cursando={cursando} nota={nota} id={id} guardar={guardarMateriaClick} volver={() => setEditarMateria(false)}></EditarMateria> : <></>}
+            {showEditarMateria ? <EditarMateria setShowPopUp={setShowPopUp} nombre={nombre} periodoDeCursada={periodoDeCursada} añoDeCursada={añoDeCursada} cursando={cursando} nota={nota} id={id} guardar={guardarMateriaClick} volver={() => setEditarMateria(false)}></EditarMateria> : <></>}
    </div>
     )
 }
