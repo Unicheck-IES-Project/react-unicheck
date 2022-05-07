@@ -1,11 +1,56 @@
+@import '../../DesignSystem.scss';
+
 .EditarMateria {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  .dashboard {
+    @include dashboard;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
-    top: 0;
-    left: 0;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 40px;
+    justify-content: center;
+
+    h1 {
+      grid-column: 1/3;
+    }
+    .buttons-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-self: center;
+      column-gap: 30px;
+      grid-column: 1/3;
+    }
+    button {
+      margin-top: 20px;
+    }
+    .select {
+      label {
+        @include body-bold;
+      }
+      select {
+        height: 48px;
+        border: 1px solid #a4afb8;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        color: #3c4144;
+        width: 100%;
+      }
+    }
+  }
 }
