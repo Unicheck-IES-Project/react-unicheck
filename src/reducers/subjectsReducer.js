@@ -1,12 +1,12 @@
 import { handle } from 'redux-pack';
 
-// const defaultState = [
-//     {
-//         nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"true", nota:"10", id:"1"
-//     }
-// ]
+const defaultState = [
+    {
+        nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"true", nota:"10", id:"1"
+    }
+]
 
-const subjects = (state = [], action) => {
+const subjects = (state = defaultState, action) => {
     console.log("esta accion entra al reducer:", action)
 
     console.log(action.payload)

@@ -2,7 +2,7 @@
 
 .SubjectListItem {
     display: grid;
-    grid-template-columns: 20% 20% 18% 18% 18% 24px;
+    grid-template-columns: 25% 25% 14% 15% 10% 24px 24px;
     justify-content: space-between;
     align-items: center;
     border-radius: 4px;
@@ -21,6 +21,10 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
+
+        &:first-of-type {
+            margin-right: 15px;
+        }
 
         img {
             width: 24px;
