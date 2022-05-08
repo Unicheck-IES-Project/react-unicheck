@@ -17,11 +17,12 @@ const EditarMateria = ({
     nombre: nombre,
     periodoDeCursada: periodoDeCursada,
     añoDeCursada: añoDeCursada,
-    cursando: cursando,
+    cursando: cursando.toString(),
     nota: nota,
   });
 
   const changeData = (propName) => (event) => {
+    console.log(event.target.value);
     setData((prevState) => ({ ...prevState, [propName]: event.target.value }));
   };
 
@@ -62,10 +63,10 @@ const EditarMateria = ({
               </select>
             </div>
             <Input
-              disabled={data.cursando == 'true' ? true : false}
+              disabled={data.cursando === 'true'}
               type='number'
               handleChange={changeData('nota')}
-              value={data.cursando == 'true' ? '' : data.nota}
+              value={data.cursando === 'true' ? '' : data.nota}
             >
               Nota final
             </Input>
