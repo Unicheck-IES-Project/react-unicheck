@@ -1,0 +1,17 @@
+.error-container {
+  width: 90%;
+  margin: auto;
+  background-color: #fdeded;
+  border-color: #f5c6cb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.error-message {
+  margin-left: 1rem;
+  color: #966969;
+}
