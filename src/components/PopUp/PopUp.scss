@@ -1,39 +1,38 @@
 .PopUp {
-    position: fixed;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  .background {
+    background: grey;
+    opacity: 0.7;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
     top: 0;
     left: 0;
-    
-    .background {
-        background: grey;
-        opacity: .7;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        margin: 0;
-    }
-    .content {
-        width: 400px;
-        height: 200px;
-        background: white; 
-        display: grid;
-        justify-items: center;
-        grid-template-columns: auto auto;
+    margin: 0;
+  }
+  .content {
+    width: 400px;
+    height: 200px;
+    background: white;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: auto auto;
+    border-radius: 16px;
+    padding: 2rem;
 
-        p {
-            grid-column: 1/3;
-            margin-top: 50px;
-        }
-
-        .primary-button {
-            width: 150px;
-            grid-row: 2/3;
-        }
+    .primary-button {
+      margin-top: 1rem;
+      width: 150px;
     }
+  }
 }
