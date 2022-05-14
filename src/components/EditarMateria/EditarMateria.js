@@ -21,8 +21,19 @@ const EditarMateria = ({
     nota: nota,
   });
 
+  const hayErrorNota = () => {
+    if(data.cursando === "true") {return false;}
+    return (data.nota <= 0 || data.nota > 10);
+  }
+
+  const hayErrorAño = () => {
+    return (data.añoDeCursada <= 1990 || data.añoDeCursada >= 2023);
+  }
+
+  const [showNotaError, setShowNotaError] = useState(false);
+  const [showAñoError, setShowAñoError] = useState(false);
+
   const changeData = (propName) => (event) => {
-    console.log(event.target.value);
     setData((prevState) => ({ ...prevState, [propName]: event.target.value }));
   };
 
@@ -39,6 +50,8 @@ const EditarMateria = ({
               type='number'
               handleChange={changeData('añoDeCursada')}
               value={data.añoDeCursada}
+              showError={showAñoError}
+              errorMessage="El año ingresado no es valido"
             >
               Año
             </Input>
@@ -67,14 +80,27 @@ const EditarMateria = ({
               type='number'
               handleChange={changeData('nota')}
               value={data.cursando === 'true' ? '' : data.nota}
+              showError={showNotaError}
+              errorMessage={"La nota debe estar comprendida entre 1 y 10"}
             >
               Nota final
             </Input>
             <div className='buttons-container'>
               <PrimaryButton
                 handleClick={() => {
-                  guardar(id, data);
-                  volver();
+                  if(hayErrorAño() && hayErrorNota()){
+                    setShowNotaError(true)
+                    setShowAñoError(true);
+                  }
+                  if(hayErrorNota()){
+                    setShowNotaError(true);
+                  }else if(hayErrorAño()){
+                    setShowAñoError(true);
+                  }
+                  else{
+                    guardar(id, data);
+                    volver();
+                  }
                 }}
               >
                 Guardar
