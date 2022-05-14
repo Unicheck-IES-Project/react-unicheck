@@ -36,8 +36,12 @@ const Register = () => {
         .then(() => navigate('/home'))
         .catch((exception) => {
           console.log(exception);
+          setError('Server Error: ' + exception);
           if (exception.status === 409) {
             setError('El nombre de usuario elegido ya se encuentra en uso.');
+          }
+          if (exception.status === 400) {
+            setError('El nombre de usuario no puede ser vacío.');
           }
         });
     }
