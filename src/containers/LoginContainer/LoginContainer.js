@@ -4,15 +4,10 @@ import Login from '../../components/Login/Login';
 import {login} from '../../actions/index';
 import {useNavigate} from 'react-router-dom';
 
-// const mapStateToProps = (state) => {
-//     return {
-//         subjects: state.subjects
-//     }
-// }
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginAction: (data, redireccionar) => {
-            dispatch(login(data, redireccionar))
+        loginAction: (data, redireccionar, setShowError) => {
+            dispatch(login(data, redireccionar, setShowError))
         }
     }
 }
@@ -28,10 +23,11 @@ const LoginContainer = ({loginAction}) => {
 
     const handleClick = (event) => {  
         event.preventDefault();
-        loginAction(data, () => navigate('/home'))       
+        loginAction(data, () => navigate('/home'), setShowError)       
     }
+    const [showError, setShowError] = useState(false);
 
-    return <Login handleChange={handleChange} handleClick={handleClick} data={data} />
+    return <Login handleChange={handleChange} handleClick={handleClick} data={data} showError={showError}/>
 }
 
 export default connect(

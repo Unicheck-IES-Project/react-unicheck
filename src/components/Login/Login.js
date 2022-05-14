@@ -1,8 +1,9 @@
 import './Login.scss'
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { useNavigate } from 'react-router';
+import ErrorAlert from '../ErrorAlert/ErrorAlert';
 
-const Login = ({handleClick, handleChange, data}) => {
+const Login = ({handleClick, handleChange, data, showError}) => {
 
     const navigate = useNavigate()
     const goToRegister = () => {
@@ -19,6 +20,7 @@ const Login = ({handleClick, handleChange, data}) => {
 
                 <label>Contraseña</label>
                 <input className='login-input' type='password' value={data.password}  onChange={handleChange("password")}/>
+                {showError ? <ErrorAlert message={"Usuaro o Contraseña invalidos"} /> : null}
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={handleClick}>Login</PrimaryButton>
