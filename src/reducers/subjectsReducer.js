@@ -1,9 +1,9 @@
 import { handle } from 'redux-pack';
 
 const defaultState = [
-    {
-        nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", nota:"10", id:"1"
-    }
+    // {
+    //     nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", nota:"10", id:"1"
+    // }
 ]
 
 const subjects = (state = defaultState, action) => {
