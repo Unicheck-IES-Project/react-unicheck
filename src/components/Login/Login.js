@@ -20,7 +20,7 @@ const Login = ({handleClick, handleChange, data, showError}) => {
 
                 <label>Contraseña</label>
                 <input className='login-input' type='password' value={data.password}  onChange={handleChange("password")}/>
-                {showError ? <ErrorAlert message={"Usuaro o Contraseña invalidos"} /> : null}
+                {showError ? <ErrorAlert message={"Usuario o Contraseña inválidos"} /> : null}
 
                 <div className='login-buttons'>
                     <PrimaryButton handleClick={handleClick}>Login</PrimaryButton>
