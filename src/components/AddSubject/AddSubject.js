@@ -3,13 +3,21 @@ import './AddSubject.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import React from 'react';
 
-const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
+const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data, showAñoError, showNotaError}) => {
     return (
         <div className="AddSubject">
             <div className="dashboard">
                 <h1>Agregar Nueva Materia</h1>
                 <Input handleChange={changeInputData("nombre")} value={data.nombre}>Nombre de asignatura</Input>
-                <Input type="number" handleChange={changeInputData("añoDeCursada")} value={data.añoDeCursada}>Año</Input>
+                <Input 
+                    type="number" 
+                    handleChange={changeInputData("añoDeCursada")} 
+                    value={data.añoDeCursada}
+                    showError={showAñoError}
+                    errorMessage="El año ingresado no es valido"
+                >
+                    Año
+                </Input>
                 <div className="select">
                     <label>Estado de cursada</label>
                     <select value={data.cursando} onChange={changeInputData("cursando")}> 
@@ -25,7 +33,15 @@ const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data}) => {
                         <option value="Anual">Anual</option>
                     </select>
                 </div>
-                <Input disabled={data.cursando == "true"? true : false} type="number" handleChange={changeInputData("nota")} value={data.nota}>Nota final</Input>
+                <Input 
+                    disabled={data.cursando == "true"? true : false} 
+                    type="number" handleChange={changeInputData("nota")} 
+                    value={data.nota}
+                    showError={showNotaError}
+                    errorMessage="La nota debe estar comprendida entre 1 y 10"
+                    >
+                        Nota final
+                    </Input>
                 <div className="buttons-container">
                     <PrimaryButton handleClick={() => onSaveClick(data)}>
                          Agregar
