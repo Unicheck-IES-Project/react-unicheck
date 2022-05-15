@@ -3,6 +3,8 @@
 .Input {
     display: grid;
     row-gap: 5px;
+    height: 178px;
+    align-content: start;
     
     label {
        @include body-bold;

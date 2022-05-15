@@ -81,7 +81,7 @@ const EditarMateria = ({
               handleChange={changeData('nota')}
               value={data.cursando === 'true' ? '' : data.nota}
               showError={showNotaError}
-              errorMessage={"La nota debe estar comprendida entre 1 y 10"}
+              errorMessage="La nota debe estar comprendida entre 1 y 10"
             >
               Nota final
             </Input>
