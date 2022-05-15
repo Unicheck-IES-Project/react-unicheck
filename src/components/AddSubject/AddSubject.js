@@ -3,12 +3,19 @@ import './AddSubject.scss';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import React from 'react';
 
-const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data, showAñoError, showNotaError}) => {
+const AddSubject = ({onCancelClick, onSaveClick, changeInputData, data, showAñoError, showNotaError, showNameError}) => {
     return (
         <div className="AddSubject">
             <div className="dashboard">
                 <h1>Agregar Nueva Materia</h1>
-                <Input handleChange={changeInputData("nombre")} value={data.nombre}>Nombre de asignatura</Input>
+                <Input 
+                    handleChange={changeInputData("nombre")} 
+                    value={data.nombre}
+                    showError={showNameError}
+                    errorMessage={"El nombre no puede ser vacio"}
+                >
+                    Nombre de asignatura
+                </Input>
                 <Input 
                     type="number" 
                     handleChange={changeInputData("añoDeCursada")} 
