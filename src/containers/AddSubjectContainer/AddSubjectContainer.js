@@ -31,17 +31,15 @@ const AddSubjectContainer = ({onSaveChangesClick, onCancelClick}) => {
     const changeData = (propName) => (event) =>{
         setData(prevState => ({...prevState, [propName]: event.target.value}))
     }
+    const hayErrorNombre = () => {
+        return data.nombre.trim() === "";
+    }
 
     const onSaveChangeSubject = () => {
-      if(hayErrorAño() && hayErrorNota()){
-        setShowNotaError(true)
-        setShowAñoError(true);
-      }
-      if(hayErrorNota()){
-        setShowNotaError(true);
-      }else if(hayErrorAño()){
-        setShowAñoError(true);
-      }else {
+        setShowNotaError(hayErrorNota())
+        setShowAñoError(hayErrorAño());
+        setShowNameError(hayErrorNombre());
+      if(!hayErrorAño() && !hayErrorNota() && !hayErrorNombre()) {
         onSaveChangesClick(data)
         onCancelClick()
       }
@@ -57,6 +55,7 @@ const AddSubjectContainer = ({onSaveChangesClick, onCancelClick}) => {
   
     const [showNotaError, setShowNotaError] = useState(false);
     const [showAñoError, setShowAñoError] = useState(false);
+    const [showNameError , setShowNameError] = useState(false);
     
     return <AddSubject 
                 onCancelClick={onCancelClick} 
@@ -65,6 +64,7 @@ const AddSubjectContainer = ({onSaveChangesClick, onCancelClick}) => {
                 changeInputData={changeData}
                 showNotaError={showNotaError}
                 showAñoError={showAñoError}
+                showNameError={showNameError}
             />
                 
 }

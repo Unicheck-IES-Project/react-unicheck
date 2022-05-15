@@ -37,13 +37,24 @@ const EditarMateria = ({
     setData((prevState) => ({ ...prevState, [propName]: event.target.value }));
   };
 
+  const [showNameError , setShowNameError] = useState(false);
+
+  const hayErrorNombre = () => {
+    return data.nombre.trim() === "";
+}
+
   return (
     <div className='EditarMateria'>
       <div className='content'>
         <div className='AddSubject'>
           <div className='dashboard'>
             <h1>Editar Materia</h1>
-            <Input handleChange={changeData('nombre')} value={data.nombre}>
+            <Input 
+              handleChange={changeData('nombre')} 
+              value={data.nombre}
+              showError={showNameError}
+              errorMessage={"El nombre no puede ser vacio"}
+              >
               Nombre de asignatura
             </Input>
             <Input
@@ -88,16 +99,10 @@ const EditarMateria = ({
             <div className='buttons-container'>
               <PrimaryButton
                 handleClick={() => {
-                  if(hayErrorAño() && hayErrorNota()){
-                    setShowNotaError(true)
-                    setShowAñoError(true);
-                  }
-                  if(hayErrorNota()){
-                    setShowNotaError(true);
-                  }else if(hayErrorAño()){
-                    setShowAñoError(true);
-                  }
-                  else{
+                  setShowNotaError(hayErrorNota())
+                  setShowAñoError(hayErrorAño());
+                  setShowNameError(hayErrorNombre());
+                  if(!hayErrorAño() && !hayErrorNota() && !hayErrorNombre()) {
                     guardar(id, data);
                     volver();
                   }
