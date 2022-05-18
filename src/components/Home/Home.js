@@ -6,6 +6,13 @@ import AddSubjectContainer from '../../containers/AddSubjectContainer/AddSubject
 import SearchBar from '../SearchBar/SearchBar';
 import SortingButton from '../SortingButton/SortingButton';
 import FilterModal from '../FilterModal/FilterModal';
+import {
+  sortByNameAsc,
+  sortByNameDesc,
+  sortByScoreAsc,
+  sortByScoreDesc,
+  identity,
+} from '../utilities/SortingFunctions';
 
 const Home = () => {
   const [showAddSubject, setShowAddSubject] = useState(false);
@@ -16,22 +23,34 @@ const Home = () => {
     setShowAddSubject(false);
   };
 
+  // Search bar
+  const [searchingFunc, setSearchingFunc] = useState(() => identity);
+  const [dataToSearch, setDataToSearch] = useState('');
+
+  const searchingFunction = (searcherFunc, data) => {
+    setSearchingFunc(() => searcherFunc);
+    setDataToSearch(data);
+  };
+
+  // Search bar
+
+  const [sortingFunc, setSortingFunc] = useState(() => identity);
+  const [filterFunc, setFilterFunc] = useState(() => identity);
+
   const handleSortByNameAsc = (aBoolean) => {
-    if (aBoolean) {
-      console.log('Ordena por nombre ascendente bro.');
-    } else {
-      console.log('Ordena por nombre descscendente bro.');
-    }
-    // Do something.
+    aBoolean
+      ? setSortingFunc(() => sortByNameAsc)
+      : setSortingFunc(() => sortByNameDesc);
   };
 
   const handleSortByScoreAsc = (aBoolean) => {
-    if (aBoolean) {
-      console.log('Ordena por nota ascendente bro.');
-    } else {
-      console.log('Ordena por nota descscendente bro.');
-    }
-    // Do something.
+    aBoolean
+      ? setSortingFunc(() => sortByScoreDesc)
+      : setSortingFunc(() => sortByScoreAsc);
+  };
+
+  const handleFilter = (aFilterFunc) => {
+    setFilterFunc(() => aFilterFunc);
   };
 
   return (
@@ -47,7 +66,7 @@ const Home = () => {
               <PrimaryButton handleClick={onAddSubjectClick}>
                 Agregar Materia
               </PrimaryButton>
-              <SearchBar />
+              <SearchBar searchFunc={searchingFunction} />
             </div>
             <div className='contacts-grid'>
               <div className='columns-names'>
@@ -64,11 +83,16 @@ const Home = () => {
                     handleSortingDirection={handleSortByScoreAsc}
                   />
                 </div>
-                <div>
-                  <FilterModal />
+                <div style={{ marginLeft: '50px' }}>
+                  <FilterModal filterByCondition={handleFilter} />
                 </div>
               </div>
-              <SubjectsListContainer />
+              <SubjectsListContainer
+                sorting={sortingFunc}
+                filtering={filterFunc}
+                searching={searchingFunc}
+                searchingData={dataToSearch}
+              />
             </div>
           </div>
         </div>

@@ -2,22 +2,27 @@ import './SearchBar.css';
 import { BiSearch } from 'react-icons/bi';
 import { useState } from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ searchFunc }) => {
   const [data, setData] = useState('');
+
+  const searcher = (subjects, dataToSearch) => {
+    return subjects.filter((subject) =>
+      subject.nombre.toLowerCase().includes(dataToSearch)
+    );
+  };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log('buscaste' + ' ' + data);
+    searchFunc(searcher, data);
   };
 
   const handleChange = (setValue) => {
-    console.log(data);
     return (event) => setValue(event.target.value);
   };
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} class='search-bar-container'>
         <input
           type='search'
           class='search-bar'

@@ -3,7 +3,7 @@ import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 import { useState } from 'react';
 
 const SortingButton = ({ handleSortingDirection }) => {
-  const [sortAsc, setSortAsc] = useState(true);
+  const [sortAsc, setSortAsc] = useState(false);
 
   const handleChange = () => {
     setSortAsc(!sortAsc);
@@ -12,7 +12,7 @@ const SortingButton = ({ handleSortingDirection }) => {
 
   return (
     <div class='sorting-icon' onClick={() => handleChange()}>
-      {sortAsc ? <AiOutlineArrowUp /> : <AiOutlineArrowDown />}
+      {sortAsc ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />}
     </div>
   );
 };
