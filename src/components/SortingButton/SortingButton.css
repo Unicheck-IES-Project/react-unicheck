@@ -1,0 +1,12 @@
+.sorting-icon {
+  margin: 2px;
+  padding: 2px;
+  transition: 0.3s;
+}
+
+.sorting-icon:hover {
+    cursor: pointer;
+    background-color: #4fedff2c;
+    border-radius: 50%;
+    transition: 0.3s;
+}

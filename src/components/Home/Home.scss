@@ -1,63 +1,76 @@
-@import "../../DesignSystem.scss";
+@import '../../DesignSystem.scss';
 
 .background {
-    position: fixed;
-    width: 100%;
-    height: calc(100vh - 93px);
-    background-color:$primary-base;
-    z-index: -1;;
-    margin-top: 93px;
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 93px);
+  background-color: $primary-base;
+  z-index: -1;
+  margin-top: 93px;
 
-    &-1{
-        position: absolute;
-        height: 50%;
-        background-color: $primary-base;
-        width: 100%;
-        top: 0;
-    }
-    &-2{
-        position: absolute;
-        height: 50%;
-        background-color: $white;
-        width: 100%;
-        bottom: 0;
-    }
+  &-1 {
+    position: absolute;
+    height: 50%;
+    background-color: $primary-base;
+    width: 100%;
+    top: 0;
+  }
+  &-2 {
+    position: absolute;
+    height: 50%;
+    background-color: $white;
+    width: 100%;
+    bottom: 0;
+  }
 }
 
 .Home {
-    @include flex-center-center;
-    min-height: 100vh;
-    background-color: $primary-base;
-    padding: 40px 0;
+  @include flex-center-center;
+  min-height: 100vh;
+  background-color: $primary-base;
+  padding: 40px 0;
 
-    .dashboard {
-        @include dashboard;
-        margin-top: 0;
+  .dashboard {
+    @include dashboard;
+    margin-top: 0;
 
-        .dashboard-title-button {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 27px;
-        }
+    .dashboard-title-button {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 27px;
 
-        .contacts-grid {
-            .columns-names {
-                display: grid;
-                grid-template-columns: 25% 25% 14% 15% 10% 24px 24px;
-                justify-content: space-between;
-                align-items: center;
-                border-radius: 4px;
-                margin-bottom: 12px;
-                padding: 0px 25px;
-                background: #F3F5F7;
-                height: 54px;
-                p{
-                    @include body-bold;
-                }
-            }
-        }
-        .contacts-amount {
-            margin-left: auto;
-        }
+      .dashboard-xd {
+        gap: 20px;
+        display: flex;
+        flex-direction: row;
+      }
     }
+
+    .compound-column-name {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .contacts-grid {
+      .columns-names {
+        display: grid;
+        grid-template-columns: 25% 25% 14% 15% 10% 24px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 4px;
+        margin-bottom: 12px;
+        padding: 0px 25px;
+        position: relative;
+        background: #f3f5f7;
+        height: 54px;
+        p {
+          @include body-bold;
+        }
+      }
+    }
+    .contacts-amount {
+      margin-left: auto;
+    }
+  }
 }
