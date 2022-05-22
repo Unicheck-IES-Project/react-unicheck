@@ -4,10 +4,10 @@
 
 .modal-content {
     z-index: 100;
-    position: fixed;
+    position: absolute;
     background-color: white;
     border: 1px solid #bec5ca;
-    border-radius: 8px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -18,7 +18,8 @@
     margin: 0;
     border-bottom: 1px solid #bec5ca;
     transition: 0.4s;
-    border-radius: 8px;
+    width: 9rem;
+    border-radius: 4px;
 }
 
 .filter-option:hover {

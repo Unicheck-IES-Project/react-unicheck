@@ -63,10 +63,12 @@ const Home = () => {
           <div className='dashboard'>
             <div className='dashboard-title-button'>
               <h1>Materias</h1>
-              <SearchBar searchFunc={searchingFunction} />
-              <PrimaryButton handleClick={onAddSubjectClick}>
-                Agregar Materia
-              </PrimaryButton>
+              <div class='dashboard-xd'>
+                <SearchBar searchFunc={searchingFunction} />
+                <PrimaryButton handleClick={onAddSubjectClick}>
+                  Agregar Materia
+                </PrimaryButton>
+              </div>
             </div>
             <div className='contacts-grid'>
               <div className='columns-names'>
