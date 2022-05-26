@@ -50,4 +50,21 @@ const goesLastByScore = (oneSubject, anotherSubject) => {
   return anotherSubjectScore - oneSubjectScore;
 };
 
+
+export const sortByYearAsc = (subjects) => {
+  return subjects.sort(goesFirstByYear);
+};
+
+const goesFirstByYear = (oneSubject, anotherSubject) => {
+  return oneSubject.añoDeCursada - anotherSubject.añoDeCursada;
+};
+
+export const sortByYearDesc = (subjects) => {
+  return subjects.sort(goesLastByYear);
+};
+
+const goesLastByYear = (oneSubject, anotherSubject) => {
+  return anotherSubject.añoDeCursada - oneSubject.añoDeCursada;
+};
+
 export const identity = (lista) => lista;
