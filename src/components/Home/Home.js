@@ -53,8 +53,8 @@ const Home = () => {
 
   const handleSortByYearAsc = (aBoolean) => {
     aBoolean
-      ? setSortingFunc(() => sortByYearAsc)
-      : setSortingFunc(() => sortByYearDesc);
+      ? setSortingFunc(() => sortByYearDesc)
+      : setSortingFunc(() => sortByYearAsc);
   };
 
   const handleFilter = (aFilterFunc) => {

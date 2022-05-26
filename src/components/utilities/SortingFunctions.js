@@ -35,8 +35,8 @@ export const sortByScoreAsc = (subjects) => {
 };
 
 const goesFirstByScore = (oneSubject, anotherSubject) => {
-  let oneSubjectScore = oneSubject.nota || 0; // Para que sea 0 si es undefined. Si quieren que las que estan siendo cursadas vayan al final, pongan 11
-  let anotherSubjectScore = anotherSubject.nota || 0;
+  let oneSubjectScore = oneSubject.notaFinal || 0; // Para que sea 0 si es undefined. Si quieren que las que estan siendo cursadas vayan al final, pongan 11
+  let anotherSubjectScore = anotherSubject.notaFinal || 0;
   return oneSubjectScore - anotherSubjectScore;
 };
 
@@ -45,11 +45,10 @@ export const sortByScoreDesc = (subjects) => {
 };
 
 const goesLastByScore = (oneSubject, anotherSubject) => {
-  let oneSubjectScore = oneSubject.nota || 0; // Para que sea 0 si es undefined. Si quieren que las que estan siendo cursadas vayan al final, pongan 11
-  let anotherSubjectScore = anotherSubject.nota || 0;
+  let oneSubjectScore = oneSubject.notaFinal || 0; // Para que sea 0 si es undefined. Si quieren que las que estan siendo cursadas vayan al final, pongan 11
+  let anotherSubjectScore = anotherSubject.notaFinal || 0;
   return anotherSubjectScore - oneSubjectScore;
 };
-
 
 export const sortByYearAsc = (subjects) => {
   return subjects.sort(goesFirstByYear);
