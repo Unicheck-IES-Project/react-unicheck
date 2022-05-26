@@ -51,6 +51,7 @@ const SubjectsListContainer = ({
       filtering={filtering}
       searching={searching}
       searchingData={searchingData}
+      getSubjects={getSubjects}
     />
   );
 };

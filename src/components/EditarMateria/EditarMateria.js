@@ -12,6 +12,7 @@ const EditarMateria = ({
   id,
   guardar,
   volver,
+  notas
 }) => {
   const [data, setData] = useState({
     nombre: nombre,
@@ -19,6 +20,7 @@ const EditarMateria = ({
     añoDeCursada: añoDeCursada,
     cursando: cursando.toString(),
     nota: nota,
+    notas: notas
   });
 
   const hayErrorNota = () => {
