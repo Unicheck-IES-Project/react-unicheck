@@ -1,9 +1,12 @@
 import './SubjectListItem.scss';
 import tacho from '../../assets/tacho.svg';
+import papeles from '../../assets/papeles.png';
 import lapiz from '../../assets/lapiz.svg';
 import { useState } from 'react';
 import PopUp from '../PopUp/PopUp';
 import EditarMateria from '../EditarMateria/EditarMateria';
+import Calificaciones from '../Calificaciones/Calificaciones';
+
 
 const SubjectListItem = ({
   nombre,

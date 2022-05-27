@@ -8,6 +8,7 @@ const SubjectList = ({
   filtering,
   searching,
   searchingData,
+  getSubjects
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const SubjectList = ({
           {...subject}
           eliminarMateriaClick={eliminarMateriaClick}
           guardarMateriaClick={guardarMateriaClick}
+          getSubjects={getSubjects}
         />
       ))}
     </>

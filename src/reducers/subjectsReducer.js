@@ -1,8 +1,29 @@
 import { handle } from 'redux-pack';
 
+const notas = [
+    {
+        id:1,
+        title:'Tp Integrador 1', 
+        number: 1
+    },
+    {
+        id:2,
+        title:'Tp Integrador 2', 
+        number: 2
+    },
+    {
+        id:3,
+        title:'Tp Integrador 3', 
+        number: 3
+    },
+    {
+        id:4,
+        title:'Tp Integrador 4', 
+        number: 4
+    }]
 const defaultState = [
     // {
-    //     nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", nota:"10", id:"1"
+    //     nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", nota:"10", id:"1", notas: notas
     // }
 ]
 
