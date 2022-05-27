@@ -11,6 +11,8 @@ import {
   sortByNameDesc,
   sortByScoreAsc,
   sortByScoreDesc,
+  sortByYearAsc,
+  sortByYearDesc,
   identity,
 } from '../utilities/SortingFunctions';
 
@@ -49,6 +51,12 @@ const Home = () => {
       : setSortingFunc(() => sortByScoreAsc);
   };
 
+  const handleSortByYearAsc = (aBoolean) => {
+    aBoolean
+      ? setSortingFunc(() => sortByYearDesc)
+      : setSortingFunc(() => sortByYearAsc);
+  };
+
   const handleFilter = (aFilterFunc) => {
     setFilterFunc(() => aFilterFunc);
   };
@@ -77,7 +85,10 @@ const Home = () => {
                   <SortingButton handleSortingDirection={handleSortByNameAsc} />
                 </div>
                 <p>Periodo</p>
-                <p>Año</p>
+                <div class='compound-column-name'>
+                  <p>Año</p>
+                  <SortingButton handleSortingDirection={handleSortByYearAsc} />
+                </div>
                 <p>Estado</p>
                 <div class='compound-column-name'>
                   <p>Nota</p>
