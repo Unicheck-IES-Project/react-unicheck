@@ -3,28 +3,28 @@ import { handle } from 'redux-pack';
 const notas = [
     {
         id:1,
-        title:'Tp Integrador 1', 
-        number: 1
+        titulo:'Tp Integrador 1', 
+        nota: 1
     },
     {
         id:2,
-        title:'Tp Integrador 2', 
-        number: 2
+        titulo:'Tp Integrador 2', 
+        nota: 2
     },
     {
         id:3,
-        title:'Tp Integrador 3', 
-        number: 3
+        titulo:'Tp Integrador 3', 
+        nota: 3
     },
     {
         id:4,
-        title:'Tp Integrador 4', 
-        number: 4
+        titulo:'Tp Integrador 4', 
+        nota: 4
     }]
 const defaultState = [
-    // {
-    //     nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", nota:"10", id:"1", notas: notas
-    // }
+    {
+        nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", notaFinal:"10", id:"1", notas: notas
+    }
 ]
 
 const subjects = (state = defaultState, action) => {

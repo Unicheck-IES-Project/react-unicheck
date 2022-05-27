@@ -27,7 +27,7 @@ const SubjectListItem = ({nombre, periodoDeCursada, añoDeCursada, cursando, not
             {showPopUp ? <PopUp eliminar={() => eliminarMateriaClick(id)} volver={() => setShowPopUp(false)}></PopUp> : <></>}
             {showEditarMateria ? <EditarMateria setShowPopUp={setShowPopUp} nombre={nombre} periodoDeCursada={periodoDeCursada} añoDeCursada={añoDeCursada} cursando={cursando} nota={notaFinal} id={id} guardar={guardarMateriaClick} volver={() => setEditarMateria(false)} notas={notas}></EditarMateria> : <></>}
             {showCalificaciones ? <Calificaciones volver={() => setShowCalificaciones(false)} nombre={nombre} id={id} notas={notas} getSubjects={getSubjects} /> : <></>}
-   </div>
+        </div>
     )
 }
 

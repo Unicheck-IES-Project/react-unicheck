@@ -4,7 +4,7 @@
     position: fixed;
     display: flex;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     z-index: 100;
@@ -26,9 +26,19 @@
             .calificacion {
                 display: grid;
                 padding: 10px;
-                grid-template-columns: 69% 29%;
+                grid-template-columns: 68% 16% 11%;;
                 column-gap: 2%;
                 background-color:#01174d19;
+                align-items: center;
+            
+                div {
+                    padding: 0 6px;
+                }
+                button {
+                    justify-self: center;
+                    margin: 0;
+                    margin-left: 17px;
+                }
 
                 &:first-child {
                     background-color:#01174d33;                    

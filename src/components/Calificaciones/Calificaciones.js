@@ -3,6 +3,8 @@ import '../PrimaryButton/PrimaryButton';
 import {useState} from 'react';
 import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import Api from '../../Api'
+import Calificacion from '../../components/Calificacion/Calificacion';
+
 
 const Calificaciones = ({
     volver, 
@@ -23,6 +25,11 @@ const Calificaciones = ({
         then(() => setCalificacion(() => ({title:'', number:''})))
     }
 
+    const eliminarCalificacion = (calificacionID) => {
+        api.delete(`api/v1/${id}/grade/${calificacionID}`,calificacion)
+        .then(() => getSubjects())
+    }
+
     const handleChange = (propName) => (event) => {
         setCalificacion((prevState) => ({ ...prevState, [propName]: event.target.value }));
       };
@@ -41,10 +48,7 @@ const Calificaciones = ({
                         <PrimaryButton disabled={esCalificacionInvalida()} handleClick={handleClick}>+</PrimaryButton>
                     </div>
                     {notas.map(calificacion => (
-                        <div className='calificacion' key={calificacion.id}>
-                             <div>{calificacion.titulo}</div>
-                             <div>{calificacion.nota}</div>
-                        </div>
+                        <Calificacion eliminarCalificacion={eliminarCalificacion} titulo={calificacion.titulo} nota={calificacion.nota} id={calificacion.id} />
                     ))}
                 </div>
                 <PrimaryButton handleClick={volver}>Volver</PrimaryButton>
