@@ -14,6 +14,15 @@ const Calificaciones = ({
     const api = new Api();
     const [calificacion, setCalificacion] = useState({title:'', number:''})
 
+    const esCalificacionInvalida = () => (calificacion.title.trim() === '' || calificacion.number.trim() === '' || calificacion.number < 1 || calificacion.number >10)
+
+    const handleClick = () => {
+
+        api.post(`api/v1/${id}/grade`,calificacion)
+        .then(() => getSubjects()).
+        then(() => setCalificacion(() => ({title:'', number:''})))
+    }
+
     const handleChange = (propName) => (event) => {
         setCalificacion((prevState) => ({ ...prevState, [propName]: event.target.value }));
       };
@@ -27,14 +36,14 @@ const Calificaciones = ({
                         <div>Calificacion</div>
                     </div>
                     <div className="inputs-calificaciones">
-                        <input onChange={handleChange('title')}></input>
-                        <input onChange={handleChange('number')} type='number'></input>
-                        <PrimaryButton disabled={calificacion.title.trim() === '' || calificacion.number.trim() === ''} handleClick={() => api.post(`/api/v1/${id}/grade`,calificacion).then(() => getSubjects())}>+</PrimaryButton>
+                        <input onChange={handleChange('title')} value={calificacion.title}></input>
+                        <input onChange={handleChange('number')} value={calificacion.number} type='number'></input>
+                        <PrimaryButton disabled={esCalificacionInvalida()} handleClick={handleClick}>+</PrimaryButton>
                     </div>
                     {notas.map(calificacion => (
                         <div className='calificacion' key={calificacion.id}>
-                             <div>{calificacion.title}</div>
-                             <div>{calificacion.number}</div>
+                             <div>{calificacion.titulo}</div>
+                             <div>{calificacion.nota}</div>
                         </div>
                     ))}
                 </div>
@@ -42,5 +51,6 @@ const Calificaciones = ({
             </div>
          </div>)
 }
+
 
 export default Calificaciones;
