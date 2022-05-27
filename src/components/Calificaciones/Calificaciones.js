@@ -26,7 +26,7 @@ const Calificaciones = ({
     }
 
     const eliminarCalificacion = (calificacionID) => {
-        api.post(`api/v1/${id}/grade/${calificacionID}`,calificacion)
+        api.delete(`api/v1/${id}/grade/${calificacionID}`,calificacion)
         .then(() => getSubjects())
     }
 
