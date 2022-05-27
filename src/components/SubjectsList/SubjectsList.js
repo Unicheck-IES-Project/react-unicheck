@@ -10,6 +10,7 @@ const SubjectList = ({
   searchingData,
   getSubjects
 }) => {
+  console.log("Aca", subjects)
   return (
     <>
       {searching(filtering(sorting(subjects)), searchingData).map((subject) => (
