@@ -4,6 +4,9 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import trashIcon from '../../assets/tacho.svg';
 import eyeIcon from '../../assets/eye.png';
 import galleryFiles from '../../assets/gallery-files.png';
+import { useState } from 'react';
+import { FileUploader } from '../FileUploader/FileUploader';
+import axios from 'axios';
 
 export const GradeGallery = ({
   backToGrades,
@@ -11,13 +14,31 @@ export const GradeGallery = ({
   gradeTitle,
   subjectName,
 }) => {
-  const isUploadedFile = true;
-  const thereAreNotUploadedImages = true;
+  const areUploadedImages = true;
+  const [uploadedFile, setUploadedFile] = useState(null);
   //El boton SubirArchivo es porque pensé:
   // El flaco selecciona el archivo con el boton de la imagen
   // Pero despues hay que disparar el subir, y pensé en ese boton
   // Que solo se habilite cuando haya efectivamente alguna imagen seleccionada
   // En el value del input
+
+  const handleUploadedFile = (file) => {
+    console.log('selecc');
+    setUploadedFile(file);
+  };
+
+  const submitFile = () => {
+    const formData = new FormData();
+    formData.append('name', 'nombre de archivo');
+    formData.append('file', uploadedFile);
+
+    axios
+      .post('url', formData)
+      .then((res) => {
+        alert('File Upload success');
+      })
+      .catch((err) => alert('File Upload Error'));
+  };
 
   return (
     <div className='GradesGallery'>
@@ -29,29 +50,35 @@ export const GradeGallery = ({
         </h1>
         <div className='upload-section'>
           <button
+            onClick={submitFile}
             className={
-              isUploadedFile
-                ? 'upload-button-enabled'
-                : 'upload-button-disabled'
+              uploadedFile
+                ? 'upload-button-enabled upload-button'
+                : 'upload-button-disabled upload-button'
             }
           >
             Subir archivo
           </button>
-          <label className='upload-label'>
-            <img src={addImageIcon} className='upload-file-icon' />
-            <input
-              type='file'
-              accept='image/png, image/jpeg'
-              style={{ display: 'none' }}
-            />
-          </label>
+
+          <FileUploader
+            onFileSelectSuccess={(file) => handleUploadedFile(file)}
+            onFileSelectError={({ error }) => alert(error)}
+          />
         </div>
 
         <div>
-          {thereAreNotUploadedImages ? (
+          {!areUploadedImages ? (
             <div className='no-images-alert'>
-              <img src={galleryFiles} width='80' style={{ margin: 'auto' }} />
-              <p>No hay capturas subidas</p>
+              <img
+                src={galleryFiles}
+                width='80'
+                style={{
+                  margin: 'auto',
+                  filter: 'opacity(0.1) drop-shadow(0 0 0 gray)',
+                }}
+                alt='no-files-uploaded-icon'
+              />
+              <h2>No hay capturas subidas</h2>
             </div>
           ) : (
             <>
@@ -59,21 +86,10 @@ export const GradeGallery = ({
                 <h3>Parcial hoja 1</h3>
                 <div>
                   <button>
-                    <img src={eyeIcon} />
+                    <img src={eyeIcon} alt='eye-icon' />
                   </button>
                   <button>
-                    <img src={trashIcon} />
-                  </button>
-                </div>
-              </div>
-              <div className='file-row'>
-                <h3>Parcial hoja 1</h3>
-                <div>
-                  <button>
-                    <img src={eyeIcon} />
-                  </button>
-                  <button>
-                    <img src={trashIcon} />
+                    <img src={trashIcon} alt='trash-icon' />
                   </button>
                 </div>
               </div>
@@ -81,10 +97,10 @@ export const GradeGallery = ({
                 <h3>Parcial hoja 1</h3>
                 <div>
                   <button>
-                    <img src={eyeIcon} />
+                    <img src={eyeIcon} alt='eye-icon' />
                   </button>
                   <button>
-                    <img src={trashIcon} />
+                    <img src={trashIcon} alt='trash-icon' />
                   </button>
                 </div>
               </div>
@@ -92,10 +108,21 @@ export const GradeGallery = ({
                 <h3>Parcial hoja 1</h3>
                 <div>
                   <button>
-                    <img src={eyeIcon} />
+                    <img src={eyeIcon} alt='eye-icon' />
                   </button>
                   <button>
-                    <img src={trashIcon} />
+                    <img src={trashIcon} alt='trash-icon' />
+                  </button>
+                </div>
+              </div>
+              <div className='file-row'>
+                <h3>Parcial hoja 1</h3>
+                <div>
+                  <button>
+                    <img src={eyeIcon} alt='eye-icon' />
+                  </button>
+                  <button>
+                    <img src={trashIcon} alt='trash-icon' />
                   </button>
                 </div>
               </div>

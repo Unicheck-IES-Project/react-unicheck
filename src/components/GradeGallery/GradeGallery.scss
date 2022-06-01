@@ -60,24 +60,24 @@
       display: flex;
       flex-direction: row;
       justify-content: end;
+      gap: 0.5rem;
     }
 
-    .upload-button-disabled {
+    .upload-button {
       margin-top: 0.4rem !important;
-      border: 1px solid gainsboro;
-      color: gainsboro;
       border-radius: 4px;
       height: 2.3rem;
       padding: 0.5rem;
+    }
+
+    .upload-button-disabled {
+      border: 1px solid gainsboro;
+      color: gainsboro;
       cursor: default;
     }
 
     .upload-button-enabled {
-      margin-top: 0.4rem !important;
       border: 1px solid #28a745;
-      border-radius: 4px;
-      height: 2.3rem;
-      padding: 0.5rem;
       color: #28a745;
       transition: 0.3s;
     }
