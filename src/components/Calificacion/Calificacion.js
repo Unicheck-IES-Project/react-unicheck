@@ -10,6 +10,8 @@ const Calificacion = ({
   nota,
   eliminarCalificacion,
   subjectName,
+  images,
+  getSubjects
 }) => {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -46,6 +48,8 @@ const Calificacion = ({
           gradeTitle={titulo}
           subjectName={subjectName}
           subjectId={id}
+          images={images}
+          getSubjects={getSubjects}
         />
       ) : (
         <></>

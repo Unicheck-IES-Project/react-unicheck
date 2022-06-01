@@ -14,6 +14,8 @@ export const GradeGallery = ({
   gradeTitle,
   subjectName,
   subjectId,
+  images,
+  getSubjects
 }) => {
   const areUploadedImages = true;
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -22,6 +24,8 @@ export const GradeGallery = ({
     console.log('selecc');
     setUploadedFile(file);
   };
+
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const submitFile = () => {
     const formData = new FormData();
@@ -34,6 +38,7 @@ export const GradeGallery = ({
       )
       .then((res) => {
         alert('File Upload success');
+        getSubjects();
         console.log(res);
       })
       .catch((err) => alert('File Upload Error'));
@@ -79,21 +84,30 @@ export const GradeGallery = ({
               />
               <h2>No hay capturas subidas</h2>
             </div>
-          ) : (
-            <>
+          ) : 
+            <div>{images.map((img,key) => (
               <div className='file-row'>
-                <h3>Parcial hoja 1</h3>
-                <div>
-                  <button>
-                    <img src={eyeIcon} alt='eye-icon' />
-                  </button>
-                  <button>
-                    <img src={trashIcon} alt='trash-icon' />
-                  </button>
-                </div>
+              <h3>{"Archivo " + (key+1)}</h3>
+              <div>
+                <button onClick={() => setShowPopUp(true)}>
+                  <img src={eyeIcon} alt='eye-icon' />
+                </button>
+                <button>
+                  <img src={trashIcon} alt='trash-icon' />
+                </button>
               </div>
-            </>
-          )}
+              <div className={`img-popup ${showPopUp && 'show'}`}> 
+                <div className="img-container">
+                  <img  className="img" src={'data:image/png;base64,' + img.picture} alt='trash-icon' /> 
+                  <button onClick={() => setShowPopUp(false)}>
+                    X                  
+                  </button>
+                </div> 
+              </div>
+            </div>
+          ))}
+          
+          </div>}
         </div>
 
         <PrimaryButton className='primary-button' handleClick={backToGrades}>

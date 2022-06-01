@@ -67,6 +67,8 @@ const Calificaciones = ({ volver, nombre, notas, id, getSubjects }) => {
               nota={calificacion.nota}
               id={calificacion.id}
               subjectName={nombre}
+              images={calificacion.images}
+              getSubjects={getSubjects}
             />
           ))}
         </div>
