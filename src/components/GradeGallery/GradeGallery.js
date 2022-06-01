@@ -15,15 +15,9 @@ export const GradeGallery = ({
   subjectName,
   subjectId,
   images,
-  getSubjects
+  getSubjects,
 }) => {
-  const areUploadedImages = true;
   const [uploadedFile, setUploadedFile] = useState(null);
-
-  const handleUploadedFile = (file) => {
-    console.log('selecc');
-    setUploadedFile(file);
-  };
 
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -42,6 +36,7 @@ export const GradeGallery = ({
         console.log(res);
       })
       .catch((err) => alert('File Upload Error'));
+    setUploadedFile(null);
   };
 
   return (
@@ -65,13 +60,13 @@ export const GradeGallery = ({
           </button>
 
           <FileUploader
-            onFileSelectSuccess={(file) => handleUploadedFile(file)}
+            onFileSelectSuccess={(file) => setUploadedFile(file)}
             onFileSelectError={({ error }) => alert(error)}
           />
         </div>
 
         <div>
-          {!areUploadedImages ? (
+          {images.length == 0 ? (
             <div className='no-images-alert'>
               <img
                 src={galleryFiles}
@@ -84,30 +79,33 @@ export const GradeGallery = ({
               />
               <h2>No hay capturas subidas</h2>
             </div>
-          ) : 
-            <div>{images.map((img,key) => (
-              <div className='file-row'>
-              <h3>{"Archivo " + (key+1)}</h3>
-              <div>
-                <button onClick={() => setShowPopUp(true)}>
-                  <img src={eyeIcon} alt='eye-icon' />
-                </button>
-                <button>
-                  <img src={trashIcon} alt='trash-icon' />
-                </button>
-              </div>
-              <div className={`img-popup ${showPopUp && 'show'}`}> 
-                <div className="img-container">
-                  <img  className="img" src={'data:image/png;base64,' + img.picture} alt='trash-icon' /> 
-                  <button onClick={() => setShowPopUp(false)}>
-                    X                  
-                  </button>
-                </div> 
-              </div>
+          ) : (
+            <div>
+              {images.map((img, key) => (
+                <div className='file-row'>
+                  <h3>{'Archivo ' + (key + 1)}</h3>
+                  <div>
+                    <button onClick={() => setShowPopUp(true)}>
+                      <img src={eyeIcon} alt='eye-icon' />
+                    </button>
+                    <button>
+                      <img src={trashIcon} alt='trash-icon' />
+                    </button>
+                  </div>
+                  <div className={`img-popup ${showPopUp && 'show'}`}>
+                    <div className='img-container'>
+                      <img
+                        className='img'
+                        src={'data:image/png;base64,' + img.picture}
+                        alt='trash-icon'
+                      />
+                      <button onClick={() => setShowPopUp(false)}>X</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-          
-          </div>}
+          )}
         </div>
 
         <PrimaryButton className='primary-button' handleClick={backToGrades}>

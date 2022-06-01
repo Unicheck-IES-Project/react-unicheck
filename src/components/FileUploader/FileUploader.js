@@ -4,7 +4,7 @@ import addImageIcon from '../../assets/add-image.png';
 export const FileUploader = ({ onFileSelectSuccess, onFileSelectError }) => {
   const handleFileInput = (e) => {
     const file = e.target.files[0];
-    if (file.size > 102400)
+    if (file.size > 102400000)
       onFileSelectError({ error: 'File size cannot exceed more than 1MB' });
     else onFileSelectSuccess(file);
   };
