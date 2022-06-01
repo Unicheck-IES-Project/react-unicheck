@@ -13,14 +13,10 @@ export const GradeGallery = ({
   gradeId,
   gradeTitle,
   subjectName,
+  subjectId,
 }) => {
   const areUploadedImages = true;
   const [uploadedFile, setUploadedFile] = useState(null);
-  //El boton SubirArchivo es porque pensé:
-  // El flaco selecciona el archivo con el boton de la imagen
-  // Pero despues hay que disparar el subir, y pensé en ese boton
-  // Que solo se habilite cuando haya efectivamente alguna imagen seleccionada
-  // En el value del input
 
   const handleUploadedFile = (file) => {
     console.log('selecc');
@@ -29,13 +25,16 @@ export const GradeGallery = ({
 
   const submitFile = () => {
     const formData = new FormData();
-    formData.append('name', 'nombre de archivo');
     formData.append('file', uploadedFile);
 
     axios
-      .post('url', formData)
+      .post(
+        `http://localhost:8080/api/v1/${subjectId}/grade/${gradeId}`,
+        formData
+      )
       .then((res) => {
         alert('File Upload success');
+        console.log(res);
       })
       .catch((err) => alert('File Upload Error'));
   };
@@ -82,39 +81,6 @@ export const GradeGallery = ({
             </div>
           ) : (
             <>
-              <div className='file-row'>
-                <h3>Parcial hoja 1</h3>
-                <div>
-                  <button>
-                    <img src={eyeIcon} alt='eye-icon' />
-                  </button>
-                  <button>
-                    <img src={trashIcon} alt='trash-icon' />
-                  </button>
-                </div>
-              </div>
-              <div className='file-row'>
-                <h3>Parcial hoja 1</h3>
-                <div>
-                  <button>
-                    <img src={eyeIcon} alt='eye-icon' />
-                  </button>
-                  <button>
-                    <img src={trashIcon} alt='trash-icon' />
-                  </button>
-                </div>
-              </div>
-              <div className='file-row'>
-                <h3>Parcial hoja 1</h3>
-                <div>
-                  <button>
-                    <img src={eyeIcon} alt='eye-icon' />
-                  </button>
-                  <button>
-                    <img src={trashIcon} alt='trash-icon' />
-                  </button>
-                </div>
-              </div>
               <div className='file-row'>
                 <h3>Parcial hoja 1</h3>
                 <div>

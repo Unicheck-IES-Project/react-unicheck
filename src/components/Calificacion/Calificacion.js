@@ -45,6 +45,7 @@ const Calificacion = ({
           gradeId={id}
           gradeTitle={titulo}
           subjectName={subjectName}
+          subjectId={id}
         />
       ) : (
         <></>
