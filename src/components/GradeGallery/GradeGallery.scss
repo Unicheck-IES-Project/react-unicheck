@@ -22,18 +22,18 @@
 
     .img-container {
       position: relative;
-       .img:first-child{
+      .img:first-child {
         width: 600px;
         height: auto;
-       }
-       button {
-         position: absolute;
-         color:white;
-         top: 10px;
-         right: 20px;
-         width: 20px;
-         height: 20px;
-       }
+      }
+      button {
+        position: absolute;
+        color: white;
+        top: 10px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+      }
     }
 
     &.show {
@@ -81,7 +81,7 @@
       border: 1px solid gainsboro;
       color: gainsboro;
       margin: 1rem 0;
-      padding: 5rem !important;
+      padding: 3rem !important;
       display: flex;
       justify-content: center;
       flex-direction: column;

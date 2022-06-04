@@ -5,6 +5,8 @@ import {
   filterAttendedSubjects,
   filterAttendingSubjects,
   filterNothing,
+  filterNotPassedSubjects,
+  filterPassedSubjects,
 } from '../utilities/FilteringFunctions';
 
 const FilterModal = ({ filterByCondition }) => {
@@ -44,6 +46,18 @@ const FilterModal = ({ filterByCondition }) => {
             onClick={() => handleFilter(filterAttendingSubjects)}
           >
             Materias en curso
+          </span>
+          <span
+            class='filter-option'
+            onClick={() => handleFilter(filterNotPassedSubjects)}
+          >
+            Materias desaprobadas
+          </span>
+          <span
+            class='filter-option'
+            onClick={() => handleFilter(filterPassedSubjects)}
+          >
+            Materias aprobadas
           </span>
         </div>
       ) : null}

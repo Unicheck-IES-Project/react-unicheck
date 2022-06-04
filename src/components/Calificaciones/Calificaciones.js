@@ -47,11 +47,15 @@ const Calificaciones = ({ volver, nombre, notas, id, getSubjects }) => {
             <input
               onChange={handleChange('title')}
               value={calificacion.title}
+              style={{ padding: '0rem 1rem' }}
+              placeholder='Un asunto de calificación ...'
             ></input>
             <input
               onChange={handleChange('number')}
               value={calificacion.number}
               type='number'
+              style={{ padding: '0rem 1rem' }}
+              placeholder='Nota'
             ></input>
             <PrimaryButton
               disabled={esCalificacionInvalida()}

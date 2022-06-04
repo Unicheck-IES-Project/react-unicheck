@@ -31,12 +31,24 @@ export const GradeGallery = ({
         formData
       )
       .then((res) => {
-        alert('File Upload success');
+        console.log('File Upload success');
         getSubjects();
         console.log(res);
       })
-      .catch((err) => alert('File Upload Error'));
+      .catch((err) => console.log('File Upload Error'));
     setUploadedFile(null);
+  };
+
+  const deletePicture = (aImageId) => {
+    axios
+      .delete(
+        `http://localhost:8080/api/v1/${subjectId}/grade/${gradeId}/${aImageId}`
+      )
+      .then((res) => {
+        getSubjects();
+        console.log(res);
+      })
+      .catch((err) => console.log('Error en borrado'));
   };
 
   return (
@@ -70,14 +82,14 @@ export const GradeGallery = ({
             <div className='no-images-alert'>
               <img
                 src={galleryFiles}
-                width='80'
+                width='60'
                 style={{
                   margin: 'auto',
                   filter: 'opacity(0.1) drop-shadow(0 0 0 gray)',
                 }}
                 alt='no-files-uploaded-icon'
               />
-              <h2>No hay capturas subidas</h2>
+              <h2 style={{ fontSize: '1.2rem' }}>No hay capturas subidas</h2>
             </div>
           ) : (
             <div>
@@ -89,7 +101,11 @@ export const GradeGallery = ({
                       <img src={eyeIcon} alt='eye-icon' />
                     </button>
                     <button>
-                      <img src={trashIcon} alt='trash-icon' />
+                      <img
+                        src={trashIcon}
+                        alt='trash-icon'
+                        onClick={() => deletePicture(img.id)}
+                      />
                     </button>
                   </div>
                   <div className={`img-popup ${showPopUp && 'show'}`}>
