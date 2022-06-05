@@ -7,7 +7,7 @@ const SearchBar = ({ searchFunc }) => {
 
   const searcher = (subjects, dataToSearch) => {
     return subjects.filter((subject) =>
-      subject.nombre.toLowerCase().includes(dataToSearch)
+      subject.nombre.toLowerCase().includes(dataToSearch.toLowerCase())
     );
   };
 

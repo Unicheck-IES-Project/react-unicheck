@@ -21,10 +21,10 @@ const notas = [
         titulo:'Tp Integrador 4', 
         nota: 4
     }]
-const defaultState = [
+const defaultState = [/*
     {
         nombre:"Matematica", periodoDeCursada:"Anual", añoDeCursada:"1998", cursando:"false", notaFinal:"10", id:"1", notas: notas
-    }
+    }*/
 ]
 
 const subjects = (state = defaultState, action) => {
